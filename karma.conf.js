@@ -15,6 +15,14 @@ module.exports = function (config) {
             require("karma-spec-reporter")
         ],
         preprocessors: {},
+
+        client: {
+          captureConsole: true,
+          mocha: {
+            bail: true
+          }
+        },
+
         reporters: ['spec'],
         port: 9876,
         colors: true,
