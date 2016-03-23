@@ -1,5 +1,5 @@
 describe('UserService', function () {
-  // creates $controller Mock service, $httpBackend var, and UserService
+  // creates $controller Mock service, and UserService
   var $controller, UserService;
   // generates the 'app' module
   beforeEach(module('app'));
@@ -21,9 +21,9 @@ describe('UserService', function () {
     UserService
       .getUser()
       .then(function(response) {
-        if (response.first_name === 'Like a' &&  response.last_name === 'Boss' && response.email === 'getthings@done.com' ) {
-          done();
-        }
+        expect(response.data.first_name).toEqual('Like a ');
+        expect(response.data.last_name).toEqual('Boss');
+        expect(response.data.email).toEqual('getthings@done.com');
       });
       // set-off calls in a controlled fashion to prevent timeouts
       $httpBackend.flush();
