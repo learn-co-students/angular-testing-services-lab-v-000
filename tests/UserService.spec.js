@@ -1,5 +1,4 @@
 describe('UserService', function () {
-  var $controller;
 
   beforeEach(module('app'));
 
