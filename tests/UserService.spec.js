@@ -9,14 +9,16 @@ describe('UserService', function () {
       .respond({first_name: 'jake', last_name: 'brady'});
   }));
 
-  it('should get the current users information', function(){
+  it('should get the current users information', function(done){
     $httpBackend.expectGET('/rest/user');
     UserService
       .getUser()
       .then(function(res){
-        if (res.first_name === 'jake' && res.last_name === 'brady'){
-          done();
-        }
+        // if (res.first_name === 'jake' && res.last_name === 'brady'){
+        //   done();
+        // }
+        expect(res.data.first_name).toEqual('jake');
+        expect(res.data.last_name).toEqual('brady');
       });
     $httpBackend.flush();
   });
