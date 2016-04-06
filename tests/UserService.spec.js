@@ -16,7 +16,7 @@ describe('UserService', function () {
     UserService
       .getUser()
       .then(function (result) {
-        var data = result;
+        var data = result.data;
         if (data.email === 'adam.king0126@gmail.com' && data.first_name === 'Adam' && data.last_name === 'King'){
           done();
         }
