@@ -10,13 +10,14 @@ describe('UserService', function () {
     $httpBackend.when('GET', '/rest/user').respond({user: 'Tom Haverford'});
   }));
 
-  it('should get the users info', function () {
+  it('should get the users info', function (done) {
     $httpBackend.expectGET('/rest/user');
 
     UserService
       .getUser()
       .then(function (res) {
-        if (res.user === 'Tom Haverford'){
+        var data = res.data;
+        if (data.user === 'Tom Haverford'){
           done();
         }
       });
