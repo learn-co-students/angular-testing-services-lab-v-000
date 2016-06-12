@@ -4,7 +4,7 @@ function UserService($http) {
 	};
 
 	this.createFullName = function (user) {
-		return user.first_name + ' ' + user.last_name
+		return user.first_name + ' ' + user.last_name;
 	};
 }
 
