@@ -7,7 +7,7 @@ describe('UserService', function () {
         UserService = $injector.get('UserService');
         $httpBackend = $injector.get('$httpBackend');
 
-        $httpBackend.when('GET', '/rest/user').respond({user: 'Bill Gates', email: 'bill@microsoft.com'});
+        $httpBackend.when('GET', '/rest/user').respond({first_name: 'Bill', last_name: 'Gates', email: 'bill@microsoft.com'});
     }));
 
     it('should get the current users information', function (done) {
@@ -16,7 +16,8 @@ describe('UserService', function () {
         UserService
           .getUser()
           .then(function (res) {
-            if (res.email === 'bill@microsoft.com' && res.createFullName === 'Bill Gates') {
+            var data = res.data;
+            if (data.email === 'bill@microsoft.com' && data.first_name === 'Bill') {
               done();
             }
           });
