@@ -1,4 +1,4 @@
-// jasmine.DEFAULT_TIMEOUT_INTERVAL = 100000;
+jasmine.DEFAULT_TIMEOUT_INTERVAL = 100000;
 
 describe('UserService', function () {
     beforeEach(module('app'));
@@ -12,7 +12,7 @@ describe('UserService', function () {
         $httpBackend.when('GET', '/rest/user').respond({user: 'Bill Gates', email: 'bill@microsoft.com'});
     }));
  
-    it('should get the current users information', function (done) {
+    it('should get the current users information', function () {
         $httpBackend.expectGET('/rest/user');
  
         UserService
