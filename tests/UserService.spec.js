@@ -18,13 +18,14 @@ describe('UserService', function () {
   }));
 
   //Step 2: set the endpoint we are sending request to
-  it('should get the current usersinformation', function(done) {
+  it('should get the current users information', function(done) {
     $httpBackend.expectGET('/rest/user');
 
     UserService
-      .getUserInfo()
-      .then(function(res) {
-        if(res.first_name === 'Bill' && res.last_name === 'Gates') {
+      .getUser()
+      .then(function(response) {
+        var user = response.data
+        if(user.first_name === 'Bill' && user.last_name === 'Gates') {
           done();
         }
       });
