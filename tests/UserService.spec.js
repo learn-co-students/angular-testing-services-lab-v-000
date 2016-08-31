@@ -18,9 +18,20 @@ describe('UserService', function () {
   }));
 
   //Step 2: set the endpoint we are sending request to
+  it('should get the current usersinformation', function(done) {
+    $httpBackend.expectGET('/rest/user');
 
+    UserService
+      .getUserInfo()
+      .then(function(res) {
+        if(res.first_name === 'Bill' && res.last_name === 'Gates') {
+          done();
+        }
+      });
+  
   // Step 3: execute the async request
 
+  });
 
 });
 
