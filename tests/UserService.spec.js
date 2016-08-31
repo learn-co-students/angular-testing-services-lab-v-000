@@ -3,6 +3,25 @@ describe('UserService', function () {
   //set the root module
   beforeEach(module('app'));
 
+  //mock API calls using $httpBackend
+  var UserService, $httpBackend;
+
+  //Step 1 of $httpBackend: define the response
+  beforeEach(inject(function($injector) {
+    UserService = $injector.get('UserService');
+    $httpBackend = $injector.get('$httpBackend');
+
+    $httpBackend.when('GET', '/rest/user').respond({
+      first_name: 'Bill',
+      last_name: 'Gates'
+    });
+  }));
+
+  //Step 2: set the endpoint we are sending request to
+
+  // Step 3: execute the async request
+
+
 });
 
 
