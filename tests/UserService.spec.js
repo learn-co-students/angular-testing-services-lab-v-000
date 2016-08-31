@@ -34,6 +34,10 @@ describe('UserService', function () {
       $httpBackend.flush();
   });
 
+  it('should return a full name', function() {
+    expect(UserService.createFullName({first_name: 'The', last_name: 'Man'})).toBe('The Man');
+  });
+
 });
 
 
