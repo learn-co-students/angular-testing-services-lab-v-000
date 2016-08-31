@@ -30,7 +30,7 @@ describe('UserService', function () {
       });
   
   // Step 3: execute the async request
-
+      $httpBackend.flush();
   });
 
 });
