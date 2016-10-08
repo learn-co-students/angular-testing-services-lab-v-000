@@ -1,4 +1,5 @@
 function UserService($http) {
+	
 	this.getUser = function () {
 		return $http.get('/rest/user');
 	};
