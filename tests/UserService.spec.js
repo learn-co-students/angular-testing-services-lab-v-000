@@ -9,7 +9,7 @@ describe('UserService', function () {
 		UserService = $injector.get('UserService');
 		$httpBackend = $injector.get('$httpBackend');
 
-		$httpBackend.when('GET', '/rest/user').respond({first_name: 'Bill', last_name: 'Gates', email: 'bill@microsoft.com'});
+		$httpBackend.when('GET', '/rest/user').respond({first_name: 'Bill', last_name: 'Story', email: 'fake@gmail.com'});
 	}));
 
 	it('should get the current users information', function (done) {
@@ -19,7 +19,7 @@ describe('UserService', function () {
 			.getUser()
 			.then(function (res) {
 				var data = res.data;
-				if (data.email === 'bill@microsoft.com' && data.first_name === 'Bill') {
+				if (data.email === 'fake@gmail.com' && data.first_name === 'Bill') {
 					done();
 				}
 			});
