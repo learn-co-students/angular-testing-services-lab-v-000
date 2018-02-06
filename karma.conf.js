@@ -22,6 +22,9 @@ module.exports = function (config) {
         autoWatch: false,
         browsers: ['Chrome'],
         singleRun: true,
-        concurrency: Infinity
+        concurrency: Infinity,
+        jasmineNodeOpts: {
+defaultTimeoutInterval: 2500000
+}
     })
 }
